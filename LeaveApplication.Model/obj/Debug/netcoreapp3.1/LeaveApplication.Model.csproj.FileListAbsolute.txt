@@ -1,0 +1,10 @@
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\bin\Debug\netcoreapp3.1\LeaveApplication.Model.deps.json
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\bin\Debug\netcoreapp3.1\LeaveApplication.Model.dll
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\bin\Debug\netcoreapp3.1\LeaveApplication.Model.pdb
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.AssemblyInfo.cs
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.dll
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Model\obj\Debug\netcoreapp3.1\LeaveApplication.Model.pdb

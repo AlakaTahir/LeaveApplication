@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Migrations.deps.json
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Migrations.dll
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Migrations.pdb
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.AssemblyInfo.cs
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.dll
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.pdb
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Migrations.runtimeconfig.json
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Migrations.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Model.dll
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\bin\Debug\netcoreapp3.1\LeaveApplication.Model.pdb
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.csproj.CopyComplete
+C:\Users\HP\Desktop\Practice\LeaveApplication\LeaveApplication.Migrations\obj\Debug\netcoreapp3.1\LeaveApplication.Migrations.genruntimeconfig.cache
