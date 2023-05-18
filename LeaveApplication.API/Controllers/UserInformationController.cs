@@ -9,10 +9,10 @@ namespace LeaveApplication.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LeaveInformationController : ControllerBase
+    public class UserInformationController : ControllerBase
     {
         private readonly IUserInformationService _userInformationService;
-        public LeaveInformationController(IUserInformationService userInformationService)
+        public UserInformationController(IUserInformationService userInformationService)
         {
             _userInformationService = userInformationService;
         }

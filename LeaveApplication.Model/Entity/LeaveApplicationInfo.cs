@@ -4,9 +4,8 @@ using System.Text;
 
 namespace LeaveApplication.Model.Entity
 {
-    public class LeaveApplicationInfo
+    public class LeaveApplicationInfo: BaseEntity
     {
-     public Guid Id { get; set; }
      public Guid UserId { get; set; }
      public Guid LeaveTypeInfoId { get; set; }
      public DateTime DateFrom { get; set; }
@@ -16,7 +15,5 @@ namespace LeaveApplication.Model.Entity
      public int NoOfDays { get; set; }
      public bool IsReviewed { get; set; }
      public bool IsApproved { get; set; }
-     public DateTime CreatedDate { get; set; }
-     public DateTime UpdatedDate { get; set; }
     }
 }

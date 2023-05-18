@@ -10,7 +10,7 @@ namespace LeaveApplication.Service.Interface
     {
         Task<BaseResponseModel> CreateLeaveApplication(Guid id, LeaveApplicationRequestModel model);
         Task<bool> ReviewLeave(Guid id, bool isApproved);
-        Task<BaseResponseModel> DeleteLeaveType(Guid id);
+        Task<BaseResponseModel> DeleteLeaveApplication(Guid id);
         Task<bool> UpdateLeaveApplication(Guid id, LeaveApplicationRequestModel model);
         Task<LeaveApplicatonResponseModel> GetApplicationByUserId(Guid userId);
     }

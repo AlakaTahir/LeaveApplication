@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LeaveApplication.Service.Service
 {
-    public class AccessTypeInformationService : IAccessTypeInformationService
+    public class AccessTypeInformationService : IAccessTypeInformationService 
     {
         private readonly IUnitOfWork _unitOfWork;
         public AccessTypeInformationService(IUnitOfWork unitOfWork)
@@ -86,6 +86,7 @@ namespace LeaveApplication.Service.Service
                         
                        
         }
+
         public async Task<bool> AccessTypeActivation(Guid id, bool isactive)
         {
 
@@ -104,6 +105,7 @@ namespace LeaveApplication.Service.Service
             return false;
 
         }
+
         public async Task<AccessTypeResponseModel> GetAccessTypeById(Guid id)
         {
             var accessType = _unitOfWork.GetRepository<AccessTypeInfo>().GetFirstOrDefault(predicate: y => y.Id == id);
@@ -125,7 +127,7 @@ namespace LeaveApplication.Service.Service
             };
         }
 
-        public List<AccessTypeResponseModel> GetAllConverter()
+        public async Task<List<AccessTypeResponseModel>> GetAllAccessType()
         {
             var accessTypes = _unitOfWork.GetRepository<AccessTypeInfo>().GetAll().ToList();
             if (accessTypes.Count != 0)
