@@ -96,9 +96,9 @@ namespace LeaveApplication.Service.Service
             };
         }
 
-        public async Task<List<LeaveTypeResponseModel>> GetAllLeave()
+        public async Task<List<LeaveTypeResponseModel>> GetAllLeaveType()
         {
-            var leaveTypes = _unitOfWork.GetRepository<LeaveTypeInfo>().GetAll().ToList();
+            var leaveTypes = _unitOfWork.GetRepository<LeaveTypeInfo>().GetAll().Where(predicate: x => x.IsActive).ToList();
             if (leaveTypes.Count != 0)
             {
                 var response = new List<LeaveTypeResponseModel>();

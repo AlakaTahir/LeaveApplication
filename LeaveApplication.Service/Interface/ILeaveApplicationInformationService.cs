@@ -12,6 +12,6 @@ namespace LeaveApplication.Service.Interface
         Task<bool> ReviewLeave(Guid id, bool isApproved);
         Task<BaseResponseModel> DeleteLeaveApplication(Guid id);
         Task<bool> UpdateLeaveApplication(Guid id, LeaveApplicationRequestModel model);
-        Task<LeaveApplicatonResponseModel> GetApplicationByUserId(Guid userId);
+        Task<LeaveApplicatonResponseModel> GetLeaveByUserId(Guid userId);
     }
 }

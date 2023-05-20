@@ -12,6 +12,6 @@ namespace LeaveApplication.Service.Interface
         Task<bool> UpdateLeaveType(Guid id, LeaveTypeRequestModel model);
         Task<bool> LeaveActivation(Guid id, bool isactive);
         Task<LeaveTypeResponseModel> GetLeaveTypeById(Guid id);
-        Task<List<LeaveTypeResponseModel>> GetAllLeave();
+        Task<List<LeaveTypeResponseModel>> GetAllLeaveType();
     }
 }

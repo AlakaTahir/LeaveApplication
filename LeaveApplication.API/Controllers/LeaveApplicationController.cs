@@ -43,7 +43,7 @@ namespace LeaveApplication.API.Controllers
         [HttpGet("GetApplicationByUserId")]
         public async Task<IActionResult> GetApplicationByUserId(Guid userId)
         {
-            var response = await _leaveApplicationInformationservice.GetApplicationByUserId(userId);
+            var response = await _leaveApplicationInformationservice.GetLeaveByUserId(userId);
             return Ok(response);
         }
     }

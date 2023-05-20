@@ -103,7 +103,7 @@ namespace LeaveApplication.Service.Service
 
         }
 
-        public async Task<LeaveApplicatonResponseModel> GetApplicationByUserId(Guid userId)
+        public async Task<LeaveApplicatonResponseModel>GetLeaveByUserId(Guid userId)
         {
             var leave = _unitOfWork.GetRepository<LeaveApplicationInfo>().GetFirstOrDefault(predicate: x => x.UserId == userId);
             if (leave != null)

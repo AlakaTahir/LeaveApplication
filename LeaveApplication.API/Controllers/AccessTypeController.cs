@@ -25,7 +25,7 @@ namespace LeaveApplication.API.Controllers
             return Ok(response);
         }
         
-        [HttpPost("UpdateAccessType")]
+        [HttpPut("UpdateAccessType")]
 
         public async Task<IActionResult> UpdateAccessType(Guid id, AccessTypeRequestModel model)
         {
@@ -57,7 +57,7 @@ namespace LeaveApplication.API.Controllers
             return Ok(response);
         }
         
-        [HttpGet("GetAccessTypeById")]
+        [HttpGet("GetAllAccessType")]
 
         public async Task<IActionResult> GetAllAccessType()
         {

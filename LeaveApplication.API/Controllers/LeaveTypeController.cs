@@ -51,9 +51,9 @@ namespace LeaveApplication.API.Controllers
 
         [HttpGet("GetAll")]
 
-        public async Task<IActionResult> GetAllLeave()
+        public async Task<IActionResult> GetAllLeaveType()
         {
-            var response = await _leaveTypeInformationService.GetAllLeave();
+            var response = await _leaveTypeInformationService.GetAllLeaveType();
             return Ok(response);
         }
     }
