@@ -13,7 +13,7 @@ namespace LeaveApplication.Service.Interface
         Task<BaseResponseModel> DeleteAccessType(Guid id);
         Task<bool> AccessTypeActivation(Guid id, bool isactive);
         Task<AccessTypeResponseModel> GetAccessTypeById(Guid id);
-        public List<AccessTypeResponseModel> GetAllConverter();
+        Task<List<AccessTypeResponseModel>> GetAllAccessType();
 
 
 
