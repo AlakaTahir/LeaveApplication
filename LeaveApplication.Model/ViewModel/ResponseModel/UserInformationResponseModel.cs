@@ -10,7 +10,6 @@ namespace LeaveApplication.Model.ViewModel
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedTime { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }
