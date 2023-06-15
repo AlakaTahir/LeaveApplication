@@ -15,5 +15,7 @@ namespace LeaveApplication.Model.Entity
      public int NoOfDays { get; set; }
      public bool IsReviewed { get; set; }
      public bool IsApproved { get; set; }
+     public bool IsActive { get; set; }
+     public DateTime ResumptionDate { get; set; }
     }
 }

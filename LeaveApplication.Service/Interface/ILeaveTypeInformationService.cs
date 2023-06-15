@@ -8,7 +8,7 @@ namespace LeaveApplication.Service.Interface
 {
     public interface ILeaveTypeInformationService
     {
-        Task<bool> CreateLeaveType(Guid id, LeaveTypeRequestModel model);
+        Task<bool> CreateLeaveType(LeaveTypeRequestModel model);
         Task<bool> UpdateLeaveType(Guid id, LeaveTypeRequestModel model);
         Task<bool> LeaveActivation(Guid id, bool isactive);
         Task<LeaveTypeResponseModel> GetLeaveTypeById(Guid id);

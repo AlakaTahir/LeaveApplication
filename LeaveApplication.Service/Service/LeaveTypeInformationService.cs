@@ -17,7 +17,7 @@ namespace LeaveApplication.Service.Service
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<bool> CreateLeaveType(Guid id,LeaveTypeRequestModel model)
+        public async Task<bool> CreateLeaveType(LeaveTypeRequestModel model)
         {
             var checkType = await _unitOfWork.GetRepository<LeaveTypeInfo>().GetFirstOrDefaultAsync(predicate: x => x.Name.ToLower().Contains(model.Name.ToLower()));
             if(checkType == null)

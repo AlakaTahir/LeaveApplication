@@ -37,14 +37,14 @@ namespace LeaveApplication.API.Controllers
             var response = await _userInformationService.ActivateUser(id);
             return Ok(response);
         }
-        [HttpGet("DeActivate")]
+        [HttpPost("DeActivate")]
         public async Task<IActionResult> DeactivateUser(Guid id)
         {
             var response = await _userInformationService.DeactivateUser(id);
             return Ok(response);
 
         }
-        [HttpGet("GetUserById")]
+        [HttpPost("GetUserById")]
         public async Task<IActionResult>  GetUserById(Guid id)
         {
             var response = await _userInformationService.GetUserById(id);

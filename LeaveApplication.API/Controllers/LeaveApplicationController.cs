@@ -19,9 +19,9 @@ namespace LeaveApplication.API.Controllers
 
         [HttpPost("CreateLeaveApplication")]
 
-        public async Task<IActionResult> CreateLeaveApplication(Guid id, LeaveApplicationRequestModel model)
+        public async Task<IActionResult> CreateLeaveApplication(LeaveApplicationRequestModel model)
         {
-            var response = await _leaveApplicationInformationservice.CreateLeaveApplication(id, model);
+            var response = await _leaveApplicationInformationservice.CreateLeaveApplication(model);
             return Ok(response);
         }
 

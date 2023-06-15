@@ -3,14 +3,16 @@ using System;
 using LeaveApplication.Migrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeaveApplication.Migrations.Migrations
 {
     [DbContext(typeof(LeaveApplicationDataBaseContext))]
-    partial class LeaveApplicationDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230522062427_newleaveapplicationupdate")]
+    partial class newleaveapplicationupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,9 +66,6 @@ namespace LeaveApplication.Migrations.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<bool>("IsApproved")
                         .HasColumnType("tinyint(1)");
 
@@ -78,9 +77,6 @@ namespace LeaveApplication.Migrations.Migrations
 
                     b.Property<int>("NoOfDays")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("ResumptionDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime(6)");

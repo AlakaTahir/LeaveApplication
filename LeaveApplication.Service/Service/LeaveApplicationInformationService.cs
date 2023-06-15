@@ -5,6 +5,7 @@ using LeaveApplication.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using System.Threading.Tasks;
 
 namespace LeaveApplication.Service.Service
@@ -17,36 +18,82 @@ namespace LeaveApplication.Service.Service
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<BaseResponseModel> CreateLeaveApplication(Guid id, LeaveApplicationRequestModel model)
+        public async Task<BaseResponseModel> CreateLeaveApplication(LeaveApplicationRequestModel model)
         {
-            var leave = _unitOfWork.GetRepository<LeaveApplicationInfo>().GetFirstOrDefault(predicate: x => x.Id == id);
-            if (leave == null)
+            var user = _unitOfWork.GetRepository<UserInfo>().GetFirstOrDefault(predicate:x=> x.Id == model.UserId);  
+            if (user != null)
             {
-                var newleave = new LeaveApplicationInfo();
-                newleave.Id = Guid.NewGuid();
-                newleave.UserId = model.UserId;
-                newleave.LeaveTypeInfoId = model.LeaveTypeInfoId;
-                newleave.BonusAmount = model.BonusAmount;
-                newleave.NoOfDays = model.NoOfDays;
-                newleave.BonusAmount = model.BonusAmount;
-                newleave.DateFrom = model.DateFrom;
-                newleave.DateTo = model.DateTo;
-                newleave.Description = model.Description;
-                newleave.CreatedDate = DateTime.Now;
+                var leavetype = _unitOfWork.GetRepository<LeaveTypeInfo>().GetFirstOrDefault(predicate: x => x.Id == model.LeaveTypeInfoId && x.IsActive == true);
+                if (leavetype != null)
+                {
 
-                _unitOfWork.GetRepository<LeaveApplicationInfo>().Insert(newleave);
-                await _unitOfWork.SaveChangesAsync();
+                    if (model.NoOfDays > 0 && leavetype.DaysAllowed >= model.NoOfDays)
+                    {
+
+                        if (model.DateFrom > DateTime.Now)
+                        {
+                            if (!leavetype.IsBonusApplicable && model.BonusAmount > 0)
+                            {
+                                return new BaseResponseModel
+                                {
+                                    Message = "Bonus is not applicable",
+                                    Status = false
+                                };
+                            }
+                            var newleavetype = new LeaveApplicationInfo();
+                            newleavetype.Id = Guid.NewGuid();
+                            newleavetype.UserId = model.UserId;
+                            newleavetype.LeaveTypeInfoId = model.LeaveTypeInfoId;
+                            newleavetype.BonusAmount = model.BonusAmount;
+                            newleavetype.NoOfDays = model.NoOfDays;
+                            newleavetype.DateFrom = model.DateFrom;
+                            newleavetype.ResumptionDate = AddBusinessDays(model.DateFrom, model.NoOfDays + 1);
+                            newleavetype.DateTo = AddBusinessDays(model.DateFrom, model.NoOfDays);
+                            newleavetype.Description = model.Description;
+                            newleavetype.CreatedDate = DateTime.Now;
+
+                            _unitOfWork.GetRepository<LeaveApplicationInfo>().Insert(newleavetype);
+
+                            await _unitOfWork.SaveChangesAsync();
+
+                            return new BaseResponseModel
+                            {
+                                Message = "Leavetype Successfully Created",
+                                Status = true
+                            };
+
+                        }
+
+                        return new BaseResponseModel
+                        {
+                            Message = "Date From is not valid",
+                            Status = false
+                        };
+                    }
+
+                    return new BaseResponseModel
+                    {
+                        Message = "Applied number of days is not valid",
+                        Status = false
+                    };
+
+                }
+               
                 return new BaseResponseModel
                 {
-                    Message = "Access Successfully Created",
-                    Status = true
+                    Message = "Leavetype Doesnt exist",
+                    Status = false
                 };
+
             }
+
+
             return new BaseResponseModel
             {
-                Message = "AccessType already exist",
+                Message = "User does not exist",
                 Status = false
             };
+
         }
 
         public async Task<bool> ReviewLeave(Guid id, bool isApproved)
@@ -90,7 +137,8 @@ namespace LeaveApplication.Service.Service
             {
                 leave.NoOfDays = model.NoOfDays;
                 leave.DateFrom = model.DateFrom;
-                leave.DateTo = model.DateTo;
+                leave.DateTo = AddBusinessDays(model.DateFrom, model.NoOfDays);
+                leave.ResumptionDate = AddBusinessDays(model.DateFrom, model.NoOfDays+1);
                 leave.BonusAmount = model.BonusAmount;
                 leave.UpdatedDate = DateTime.Now;
 
@@ -125,6 +173,69 @@ namespace LeaveApplication.Service.Service
             };
         }
 
+        private static DateTime AddBusinessDays(DateTime date, int days)
+        {
+            if (days < 0)
+            {
+                throw new ArgumentException("days cannot be negative", "days");
+            }
 
+            if (days == 0) return date;
+
+            if (date.DayOfWeek == DayOfWeek.Saturday)
+            {
+                date = date.AddDays(2);
+                days -= 1;
+            }
+            else if (date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                date = date.AddDays(1);
+                days -= 1;
+            }
+
+            date = date.AddDays(days / 5 * 7);
+            int extraDays = days % 5;
+
+            if ((int)date.DayOfWeek + extraDays > 5)
+            {
+                extraDays += 2;
+            }
+
+            return date.AddDays(extraDays);
+
+        }
     }
 }
+
+//if (leavetype == null)
+//{
+//    return new BaseResponseModel
+//    {
+//        Message = "Leavetype Doesnt exist",
+//        Status = false
+//    };
+//}
+//if (model.NoOfDays == 0 || leavetype.DaysAllowed <= model.NoOfDays)
+//{
+//    return new BaseResponseModel
+//    {
+//        Message = "Applied number of days is not valid",
+//        Status = false
+//    };
+//}
+//if (model.DateFrom <= DateTime.Now)
+//{
+//    return new BaseResponseModel
+//    {
+//        Message = "Date From is not valid",
+//        Status = false
+//    };
+//}
+//if (!leavetype.IsBonusApplicable && model.BonusAmount > 0)
+//{
+//    return new BaseResponseModel
+//    {
+//        Message = "Bonus is not applicable",
+//        Status = false
+//    };
+//}
